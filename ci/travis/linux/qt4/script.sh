@@ -14,13 +14,13 @@
 ###########################################################################
 
 export PYTHONPATH=${HOME}/osgeo4travis/lib/python2.7/site-packages/
-export PATH=${HOME}/osgeo4travis/bin:${HOME}/osgeo4travis/sbin:${PATH}
+export PATH=${HOME}/osgeo4travis/bin:${HOME}/osgeo4travis/sbin:${HOME}/OTB-${OTB_VERSION}-Linux64/bin:${PATH}
 export LD_LIBRARY_PATH=${HOME}/osgeo4travis/lib
 export CTEST_PARALLEL_LEVEL=1
 export CCACHE_CPP2=yes
 export CCACHE_TEMPDIR=/tmp
 
 #Set OTB application path (installed in before_install.sh script)
-export OTB_APPLICATION_PATH=${HOME}/OTB-5.6.0-Linux64/lib/otb/applications
+export OTB_APPLICATION_PATH=${HOME}/OTB-${OTB_VERSION}-Linux64/lib/otb/applications
 
 xvfb-run ctest -V -E 'qgis_openstreetmaptest|qgis_wcsprovidertest|PyQgsOfflineEditingWFS' -S ./qgis-test-travis.ctest --output-on-failure
